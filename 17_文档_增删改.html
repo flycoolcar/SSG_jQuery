@@ -40,8 +40,9 @@
   <li class="box">CCCCC</li>
 
   <li title="hello">DDDDDD</li>
-  <li title="two">EEEEE</li>
-  <li>FFFFF</li>
+  <li title="two">two -EEEEE</li>
+  <li title="one">one-EEEEE</li>
+  <li class="fff">FFFFF</li>
 
 </ul>
 <br>
@@ -73,7 +74,7 @@
     删除所有匹配的元素
 -->
 <script src="js/jquery-1.10.1.js" type="text/javascript"></script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   /*
    需求:
    1. 向id为ul1的ul下添加一个span(最后)
@@ -104,6 +105,28 @@
   //6. 移除id为ul2的ul下的所有li
   // $('#ul2').empty()  // <p>也会删除
   $('#ul2>li').remove()
+</script> -->
+
+<script>
+    /*
+   需求:
+   1. 向id为ul1的ul下添加一个span(最后)
+   2. 向id为ul1的ul下添加一个span(最前)
+   3. 在id为ul1的ul下的li(title为hello)的前面添加span
+   4. 在id为ul1的ul下的li(title为hello)的后面添加span
+   5. 将在id为ul2的ul下的li(title为hello)全部替换为p
+   6. 移除id为ul2的ul下的所有li
+   */
+   $('#ul1').append('<span>插入的span</span>');
+   $('<span>插入的span-2</span>').appendTo('#ul1');
+  //  2. 向id为ul1的ul下添加一个span(最前)
+  $('#ul1').prepend('<span>插入的prepend</span>');
+  // 3. 在id为ul1的ul下的li(title为hello)的前面添加span 中间指定加
+  $('#ul1').children('[title=hello]').before('<span>插入的before</span>');
+  // 在id为ul1的ul下的li(title为hello)的后面添加span
+  $('#ul1').children('[title=hello]').after('<span>插入的after</span>');
+ 
+
 </script>
 </body>
 </html>

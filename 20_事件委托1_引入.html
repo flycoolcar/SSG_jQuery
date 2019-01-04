@@ -1,29 +1,74 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <title>20_事件委托_引入.html</title>
+  <style lang="">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    div{
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      left: 100px;
+      top: 200px;
+      background-color: aquamarine;
+    }
+    p{
+      position: relative;
+      left: 10px;
+      top: 10px;
+    }
+  </style>
 </head>
 
 <body>
 
-<ul>
-  <li>11111</li>
-  <li>1111111</li>
-  <li>111111111</li>
-  <li>11111111111</li>
-</ul>
+  <ul>
+    <li>11111</li>
+    <li>1111111</li>
+    <li>111111111</li>
+    <li>11111111111</li>
+  </ul>
 
-<li>22222</li>
-<br>
-<button id="btn">添加新的li</button>
-<br>
+  <li>22222</li>
+  <br>
+  <button id="btn" type="button">添加新的li</button>
+  <button id="btn01" type="button">删除监听事件</button>
+  <br>
+  <div>
+    <p>我是p</p>
+  </div>
 
-<!--
+  <!--
 绑定事件监听的问题: 新加的元素没有监听
 -->
-<script src="js/jquery-1.10.1.js"></script>
-<script>
+  <script src="js/jquery-1.10.1.js"></script>
+  <script>
+    /*
+   需求：
+   1. 点击 li 背景就会变为红色
+   2. 点击 btn 就添加一个 li
+  */
+    // $('ul>li').click(function (param) { 
+    //   $(this).css('background','yellow');
+    //  })
+    $('ul').delegate('li', 'click', function (param) {
+      $(this).css('background', 'yellow');
+    })
+
+    $('#btn').click(function (param) {
+      $('ul').append('<li>新增的li</li>');
+    })
+
+    $('#btn01').click(function (param) {
+      $('ul').undelegate();
+    })
+  </script>
+  <!-- <script>
   /*
    需求：
    1. 点击 li 背景就会变为红色
@@ -36,6 +81,7 @@
   $('#btn').click(function () {
     $('ul').append('<li>新增的li....</li>')
   })
-</script>
+</script> -->
 </body>
+
 </html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery</title>
+    <script src="./jquery-3.3.1.js"></script>
+</head>
+<body>
+    <button type="button" id="btn">我是按钮</button>
+    <div class="" id="box1">
+        输入框1<input type="text" name="" id="input01"><br>
+        输入框2<input type="text" name="" id="input02">
+    </div>
+    <img src="./IMG/1.png"/> <img src="./IMG/2.png"/>
+
+    <script>
+        console.log($==jQuery);
+        var arr = [1,2,3,4,5];
+        $.each(arr, function (indexInArray, valueOfElement) { 
+             console.log('键是：'+indexInArray+' 值是:'+valueOfElement);
+             
+        });
+        // 入口函数
+        $(function () { 
+            $('#btn').click(function () { 
+                var value = $(this).text('林志玲');
+                console.log($("img").length);
+             })
+         });
+         $('div').append('<br>输入框3<input type="text" name="" id="input03">');
+    </script>
+</body>
+</html>

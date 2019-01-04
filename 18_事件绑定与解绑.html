@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <title>18_事件绑定与解绑</title>
+  <script src="./jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <style type="text/css">
   * {
@@ -30,24 +32,23 @@
     position: absolute;
     top: 250px;
   }
-
 </style>
 
 <body style="height: 2000px;">
 
-<div class="out">
-  外部DIV
-  <div class="inner">内部div</div>
-</div>
+  <div class="out">
+    外部DIV
+    <div class="inner">内部div</div>
+  </div>
 
-<div class='divBtn'>
-  <button id="btn1">取消绑定所有事件</button>
-  <button id="btn2">取消绑定mouseover事件</button>
-  <button id="btn3">测试事件坐标</button>
-  <a href="http://www.baidu.com" id="test4">百度一下</a>
-</div>
+  <div class='divBtn'>
+    <button id="btn1">取消绑定所有事件</button>
+    <button id="btn2">取消绑定mouseover事件</button>
+    <button id="btn3">测试事件坐标</button>
+    <a href="http://www.baidu.com" id="test4">百度一下</a>
+  </div>
 
-<!--
+  <!--
 1. 事件绑定(2种)：
   * eventName(function(){})
     绑定对应事件名的监听,	例如：$('#div').click(function(){});
@@ -66,8 +67,37 @@
   * 停止事件冒泡 : event.stopPropagation()
   * 阻止事件默认行为 : event.preventDefault()
 -->
-<script src="js/jquery-1.10.1.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript">
+  <script>
+    /*
+   需求：
+   1. 给.out绑定点击监听(用两种方法绑定)
+   2. 给.inner绑定鼠标移入和移出的事件监听(用3种方法绑定)
+   3. 点击btn1解除.inner上的所有事件监听
+   4. 点击btn2解除.inner上的mouseover事件
+   5. 点击btn3得到事件坐标
+   6. 点击.inner区域, 外部点击监听不响应
+   7. 点击链接, 如果当前时间是偶数不跳转
+   */
+    // $('.out').click(function (param) {
+    //   console.log(111);
+    // });
+
+    // $('.inner').hover(() => {
+    //   console.log(412313);
+    // }, () => {
+    //   console.log(555);
+    // })
+    $('.inner').hover(function () {
+      console.log('进入3')
+    }, function () {
+      console.log('离开3')
+    })
+
+    $('#btn1').click(function () {
+      $('.inner').off();
+    })
+  </script>
+  <!-- <script type="text/javascript">
   /*
    需求：
    1. 给.out绑定点击监听(用两种方法绑定)
@@ -142,6 +172,7 @@
       event.preventDefault()
     }
   })
-</script>
+</script> -->
 </body>
+
 </html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>id</title>
+    <script src="./jquery-3.3.1.js"></script>
+    <style lang="">
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="box1">
+        <p>我第1个p</p>
+        <p>我第2个p</p>
+        <p>我第3个p</p>
+        <p>我第4个p</p>
+    </div>
+
+    <p class="one">我是外面的p</p>
+
+    <ul>
+        <li>我是第1个li</li>
+        <li>我是第2个li  <span>我是li里面的span</span></li>
+        <li>我是第3个li</li>
+        <li>我是第4个li</li>
+        <span>我是span</span>
+    </ul>
+
+
+    <br>
+    <ul class="myul">
+        <li class="one">AAAAA</li>
+        <li title="hello1">BBBBB(title="hello") <p>我是li里面的p</p></li>
+        <li class="box">CCCCC(class="box")</li>
+        <li title="hello">DDDDDD(title="hello")</li>
+        <li style="display:none">我是隐藏</li>
+    </ul>
+
+    <script>
+        // $('#div1').css('color','pink');
+        // $('div').css('background','skyblue');
+        // $('.box').css('color','red');
+        // $('div,span').css('fontSize','20px');
+        // $('div.box').css('color','yellow');
+        // $('div.myp').css('background', 'tomato');
+        // $('.myul li:eq(0)').css('background','red');
+        // 后代是空格
+        //  $('ul span').css('color','pink');
+        
+        // $('ul>span').css('color','red');
+        $('.one+li').css('background','red');        
+        // $('ul .one~*').css('background','tomato');
+        // $('p:first').css('color','red');
+        // $('i:not(.myi)').css('background','tomato');
+        // $(".myul li:lt(3):gt(0)").css('fontSize','30px');
+        // $(".myul :contains('CCCCC')").css('fontSize','40px');
+        // $("li[title='hello']").css('background','blue');
+        $('.box1 > p:gt(0)').css('color','skyblue');
+
+
+    </script>
+</body>
+
+</html>

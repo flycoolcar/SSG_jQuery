@@ -6,7 +6,7 @@ var buf1 = Buffer.from(str1);
 const buf4 = Buffer.from([1, 2, 3]);
 // console.log(buf1,buf.length,buf1.length);
 // console.log(str.length);
-console.log(buf,buf.toString());
+console.log(typeof JSON,typeof Buffer,typeof buf,buf,buf.toString());
 console.log(buf1,buf1.toString());
 console.log(buf4,buf4.toString());
 

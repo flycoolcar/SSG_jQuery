@@ -1,6 +1,7 @@
 // show dbs
 // use mytest
 // db.dropDatabase()
+// show collections
 use my_test
 db.users.insert({
     username:'孙悟空'
@@ -47,3 +48,48 @@ db.users.update({
 },{$unset:{
     address:'花果山'
 }})
+
+// 给孙悟空内嵌文档
+db.users.update({
+    username:'孙悟空'
+},{$set:{
+    hobby:{
+        city:['北京','上海'],
+        movies:['西游记','三国']
+    }
+}})
+
+// 唐僧内嵌文档
+
+db.users.update({
+    username:'唐僧'
+},{$set:{
+    hobby:{
+        city:['北京','上海'],
+        movies:['大话西游','喜剧之王']
+    }
+}})
+
+// 内嵌文档查询 必须使用引号 find({})
+db.users.find({"hobby.movies":"西游记"})
+
+// 唐僧里面加个电影，不管是不是重复
+// $addToSet添加值到一个数组中去，如果数组中已经存在该值那么将不会有任何的操作。
+
+db.users.update({
+    username:'唐僧'
+},{$push:{
+    "hobby.movies":"东游记"
+}})
+
+// $addToSet添加值到一个数组中去，如果数组中已经存在该值那么将不会有任何的操作。
+db.users.update({
+    username:'唐僧'
+},{$addToSet:{
+    "hobby.movies":"东游记"
+}})
+
+var arr = [1,2,3,4,5]
+
+db.users.insert(arr)
+

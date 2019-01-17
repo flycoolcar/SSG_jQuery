@@ -89,7 +89,13 @@ db.users.update({
     "hobby.movies":"东游记"
 }})
 
-var arr = [1,2,3,4,5]
-
-db.users.insert(arr)
+// 建立numbers库，插入500个表
+use numbers
+for (let index = 1; index <= 500; index++) {
+    db.numbers.insert({num:index})   
+}
+// nub ==50
+db.numbers.find({num:50})
+// greater than num>50
+db.numbers.find({num:{$gt:50}})
 

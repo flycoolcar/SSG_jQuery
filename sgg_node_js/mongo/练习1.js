@@ -89,13 +89,29 @@ db.users.update({
     "hobby.movies":"东游记"
 }})
 
-// 建立numbers库，插入500个表
+// 建立numbers库，插入500个记录
 use numbers
 for (let index = 1; index <= 500; index++) {
     db.numbers.insert({num:index})   
 }
+
+// (>) 大于 - $gt
+// (<) 小于 - $lt
+// (>=) 大于等于 - $gte
+// (<= ) 小于等于 - $lte
 // nub ==50
 db.numbers.find({num:50})
 // greater than num>50
 db.numbers.find({num:{$gt:50}})
+db.numbers.find({num:{$gte:50}})
 
+db.numbers.find({num:{$lt:10}})
+db.numbers.find({num:{$lte:10}})
+
+// 大于=40 小于=50
+db.numbers.find({num:{
+    $gte:40,
+    $lte:50
+}})
+
+// 查看前10条数据

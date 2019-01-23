@@ -125,3 +125,6 @@ db.numbers.find().limit(10)
 // 21-30  3-1  *10
 // 21-30  3-1  *10
 db.numbers.find().skip(10).limit(10)
+
+// 只看某个字段
+db.test1.find({},{name:1})

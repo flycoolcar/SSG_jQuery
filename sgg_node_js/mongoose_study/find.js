@@ -1,15 +1,16 @@
 var mongoose = require("mongoose");
 mongoose.connect(
-  "mongodb://localhost:27017/mongoose_test", {
+  "mongodb://localhost:27017/mongoose_test",
+  {
     useNewUrlParser: true
   }
 );
 
-mongoose.connection.once("open", function () {
+mongoose.connection.once("open", function() {
   console.log("连接成功");
 });
 
-mongoose.connection.once("close", function () {
+mongoose.connection.once("close", function() {
   console.log("连接断开");
 });
 // schema是mongoose里会用到的约束一种数据模式，
@@ -51,33 +52,32 @@ var StuModel = mongoose.model("students", stuSchema);
 
 // console.log(1111);
 
-StuModel.create(
-  [{
-      name: "猪八戒",
-      age: 18,
-      gender: "male",
-      address: "高老庄"
-    },
-    {
-      name: "唐僧",
-      age: 19,
-      gender: "male",
-      address: "东土大唐"
-    }
-  ],
-  function (err) {
-    if (!err) {
-      console.log("创建成功");
-    } else {
-      console.log("插入失败");
-    }
-  }
-);
+// StuModel.create(
+//   [{
+//       name: "猪八戒",
+//       age: 18,
+//       gender: "male",
+//       address: "高老庄"
+//     },
+//     {
+//       name: "唐僧",
+//       age: 19,
+//       gender: "male",
+//       address: "东土大唐"
+//     }
+//   ],
+//   function (err) {
+//     if (!err) {
+//       console.log("创建成功");
+//     } else {
+//       console.log("插入失败");
+//     }
+//   }
+// );
 // console.log(222);
 // console.log(222);
 
 // mongoose.disconnect();
-
 
 // Model.find()
 // Parameters
@@ -85,10 +85,32 @@ StuModel.create(
 // [projection] «Object|String» optional fields to return, see Query.prototype.select()
 // [options] «Object» optional see Query.prototype.setOptions()
 // [callback] «Function» 回调函数查询结果
-StuModel.find({
-  name: '唐僧'
-}, function (err, docs) {
-  if (!err) {
-    console.log(docs);
+
+// StuModel.find({
+//   name: '唐僧'
+// }, function (err, docs) {
+//   if (!err) {
+//     console.log(docs);
+//   }
+// })
+
+StuModel.findOne(
+  {
+    name: "唐僧"
+  },
+  function(err, doc) {
+    if (!err) {
+      console.log(err, doc.address, doc._id);
+    } else {
+      console.log(err);
+    }
   }
-})
+);
+
+StuModel.findById('5c480de76dd15a1c2cdbaf19',function (err,doc) { 
+  if (!err) {
+    console.log(doc);
+  }
+ })
+
+// mongoose.disconnect();

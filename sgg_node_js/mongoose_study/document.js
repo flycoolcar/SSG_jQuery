@@ -55,7 +55,6 @@ StuModel.findOne({}, function (err, doc) {
         var json = JSON.stringify(doc);
         var o = '{"age":10,"name":"小妖精"}';
         JSON.parse(o);
-        console.log(json,o);
-        
+        console.log(json,o);    
     }
 })

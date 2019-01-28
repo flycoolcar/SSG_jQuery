@@ -1,16 +1,15 @@
 var mongoose = require("mongoose");
 mongoose.connect(
-  "mongodb://localhost:27017/mongoose_test",
-  {
+  "mongodb://localhost:27017/mongoose_test", {
     useNewUrlParser: true
   }
 );
 
-mongoose.connection.once("open", function() {
+mongoose.connection.once("open", function () {
   console.log("连接成功");
 });
 
-mongoose.connection.once("close", function() {
+mongoose.connection.once("close", function () {
   console.log("连接断开");
 });
 // schema是mongoose里会用到的约束一种数据模式，
@@ -94,6 +93,7 @@ StuModel.create({
 //   }
 // })
 
+<<<<<<< HEAD
 // StuModel.findOne(
 //   {
 //     name: "唐僧"
@@ -112,5 +112,53 @@ StuModel.create({
 //     console.log(doc);
 //   }
 //  })
+=======
+StuModel.findOne({
+    name: "唐僧"
+  },
+  function (err, doc) {
+    if (!err) {
+      console.log(err, doc.address, doc._id, doc instanceof StuModel);
+    } else {
+      console.log(err);
+    }
+  }
+);
+
+StuModel.findById('5c480de76dd15a1c2cdbaf19', function (err, doc) {
+  if (!err) {
+    console.log(doc.name, doc.age, doc.address);
+  }
+})
+>>>>>>> d44123369d1850e67c97d98af0f8e52b5db3fba2
 
 // mongoose.disconnect();
+
+// 修改
+// Model.updateOne()
+// Parameters
+// conditions «Object»
+// doc «Object»
+// [options] «Object» optional see Query.prototype.setOptions()
+// [callback] «Function»
+StuModel.updateMany({
+  name: '唐僧'
+}, {
+  $set: {
+    age: 100
+  }
+}, function (err, doc) {
+  if (!err) {
+    console.log('修改成功');
+  }
+})
+
+// 删除
+
+StuModel.deleteOne({
+  name: '唐僧'
+}, function (err, doc) {
+  if (!err) {
+    console.log('删除成功');
+  }
+})

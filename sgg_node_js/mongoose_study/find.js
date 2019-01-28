@@ -32,16 +32,16 @@ var stuSchema = new Schema({
 // mongoose.model(modelName, schema)
 // modelName要映射的数据库集合名字
 var StuModel = mongoose.model("students", stuSchema);
-// StuModel.create({
-//     name: '白骨精',
-//     age: 18,
-//     // gender: 'male',
-//     address: '白骨洞'
-// }, function (err) {
-//     if (!err) {
-//         console.log('创建成功');
-//     }
-// })
+StuModel.create({
+    name: '孙悟空',
+    age: 18,
+    gender: 'remale',
+    address: '花果山'
+}, function (err) {
+    if (!err) {
+        console.log('创建成功');
+    }
+})
 
 // Model以后可以增删改查操作
 // Model.create() 创建文档
@@ -94,23 +94,23 @@ var StuModel = mongoose.model("students", stuSchema);
 //   }
 // })
 
-StuModel.findOne(
-  {
-    name: "唐僧"
-  },
-  function(err, doc) {
-    if (!err) {
-      console.log(err, doc.address, doc._id);
-    } else {
-      console.log(err);
-    }
-  }
-);
+// StuModel.findOne(
+//   {
+//     name: "唐僧"
+//   },
+//   function(err, doc) {
+//     if (!err) {
+//       console.log(err, doc.address, doc._id);
+//     } else {
+//       console.log(err);
+//     }
+//   }
+// );
 
-StuModel.findById('5c480de76dd15a1c2cdbaf19',function (err,doc) { 
-  if (!err) {
-    console.log(doc);
-  }
- })
+// StuModel.findById('5c480de76dd15a1c2cdbaf19',function (err,doc) { 
+//   if (!err) {
+//     console.log(doc);
+//   }
+//  })
 
 // mongoose.disconnect();

@@ -1,6 +1,13 @@
-var tools=require('./tools.js');
+var tools = require('./tools.js');
+var obj = require('./tools.js');
 
-console.log(tools.add(1,2));
+
+// 
+// console.log(sayName('hello'));
+
+console.log(tools === obj);
+
+console.log(obj.myFun(5), tools.add(1, 2));
 
 console.log(tools.sayHello());
 

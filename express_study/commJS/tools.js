@@ -15,6 +15,25 @@ var tools={
 
 }
 
+var obj = {
+    sayName:function (s) { 
+        console.log(s);
+     }
+}
+
+function sayName() {
+    console.log(1111);    
+}
+
 //exports.tools=tools;
+exports.obj=obj;
 
 module.exports=tools;
+
+module.exports.i = 100;
+module.exports.j = 55;
+module.exports.myFun = function (i) { 
+    return i*i;
+ };
+ exports.a = 100;
+ exports.b=true;

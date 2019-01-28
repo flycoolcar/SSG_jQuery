@@ -5,7 +5,7 @@ var obj = require('./tools.js');
 // 
 // console.log(sayName('hello'));
 
-console.log(tools === obj);
+console.log(obj);
 
 console.log(obj.myFun(5), tools.add(1, 2));
 

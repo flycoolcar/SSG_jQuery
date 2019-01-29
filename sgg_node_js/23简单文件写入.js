@@ -16,10 +16,20 @@
 var fs = require('fs');
 console.log(typeof fs);
 
-fs.writeFile('./file/test01.txt', '迪丽热巴01',{flag:'a'},function (err) {
+fs.writeFile('./file/test01.txt', '迪丽热巴01', {
+    flag: 'a'
+}, function (err) {
     if (!err) {
         console.log('简单文件写入成功');
-    }else{
-        console.log(err);    
+    } else {
+        console.log(err);
     }
 });
+
+fs.appendFile('./file/test01.txt', '我是林志玲!!!!', function (err) {
+
+})
+
+fs.readFile('./file/test01.txt', function (err, data) {
+    console.log(data.toString());
+})

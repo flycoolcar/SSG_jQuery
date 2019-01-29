@@ -111,7 +111,7 @@ fs.mkdir('./css', function (err) {
 
 // 4. fs.appendFile 追加文件
 
-fs.appendFile('2.txt', '这是写入2的内容', function (err) {
+fs.appendFile('2.txt', '3333', function (err) {
 
   if (err) {
     console.log(err);
@@ -139,17 +139,17 @@ fs.appendFile('2.txt', '这是写入2的内容', function (err) {
 //5.fs.readFile 读取文件
 
 
-//fs.readFile('t1.txt',function(err,data){
-//   if(err){
-//    console.log(err);
-//
-//    return false;
-//   }
-//   //console.log(data);
-//
-//   console.log(data.toString());
-//
-//})
+fs.readFile('t1.txt', function (err, data) {
+  if (err) {
+    console.log(err);
+
+    return false;
+  }
+  // console.log(data);
+
+  console.log(data.toString());
+
+})
 
 
 
@@ -173,15 +173,15 @@ fs.appendFile('2.txt', '这是写入2的内容', function (err) {
 //7.fs.rename 重命名
 //1.改名  2.剪切文件
 
-//fs.rename('html/index.html','html/news.html',function(err){
-//
-//    if(err){
-//     console.log(err);
-//
-//     return false;
-//   }
-//   console.log('修改名字成功');
-//})
+fs.rename('html/22.txt', 'html/news.html', function (err) {
+
+  if (err) {
+    console.log(err);
+
+    return false;
+  }
+  console.log('修改名字成功');
+})
 
 
 //fs.rename('html/css/basic.css','html/style.css',function(err){

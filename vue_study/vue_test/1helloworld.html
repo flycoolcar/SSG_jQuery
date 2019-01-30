@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue</title>
+    <script src="../../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="test">
+        <input type="text" name="" id="" v-model="msg">
+        <p>你输入的是: {{msg}}</p>
+    </div>
+
+    <script>
+        const vm = new Vue({ // 配置对象 options
+            // 配置选项(option)
+            el: '#test', // element: 指定用vue来管理页面中的哪个标签区域
+            data: {
+                msg: '林志玲'
+            }
+        })
+    </script>
+</body>
+
+</html>

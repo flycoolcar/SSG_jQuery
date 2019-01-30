@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模板语法</title>
+    <script src="../../js/vue.js"></script>
+</head>
+
+<body>
+    <!--
+1. 模板的理解:
+  动态的html页面
+  包含了一些JS语法代码
+    大括号表达式
+    指令(以v-开头的自定义标签属性)
+2. 双大括号表达式
+  语法: {{exp}} 或 {{{exp}}}
+  功能: 向页面输出数据
+  可以调用对象的方法
+3. 指令一: 强制数据绑定
+  功能: 指定变化的属性值
+  完整写法:
+    v-bind:xxx='yyy'  //yyy会作为表达式解析执行
+  简洁写法:
+    :xxx='yyy'
+4. 指令二: 绑定事件监听
+  功能: 绑定指定事件名的回调函数
+  完整写法:
+    v-on:click='xxx'
+  简洁写法:
+    @click='xxx'
+-->
+    <div id="app">
+        <h3>双大括号表达式</h3>
+        <input type="text" v-model="msg">
+        <p>我是大括号的数据: {{msg}}</p>
+        <p v-html="html">我要插入标签</p>
+        <p v-text="msg1">我是p里面原生数据</p>
+        <a href="http://www.baidu.com">我是百度</a>
+
+        <h3>指令一: 强制数据绑定v-bind:xxx :xxx='yyy'</h3>
+        <img v-bind:src="imgSrc" style="transform:scale(1)" width="300" height="300">
+        <img :src="imgSrc" style="transform:scale(1)" width="100" height="100">
+
+        <h2>指令二: 绑定事件监听v-on:click='xxx' @click='xxx'</h2>
+        <button @click="test">我是按钮一</button>
+        <button @click="test1('我是林志玲')">我是按钮二</button>
+        <button @click="test1(msg)">我是按钮三</button>
+
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello林志玲',
+                msg1: '我是msg1',
+                html: '<a href="http://www.baidu.com">vue里面的百度</a>',
+                imgSrc: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548871714191&di=395d780902d239e210f04136748cd2f4&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201603%2F13%2F20160313205455_5Ki8d.jpeg'
+            },
+            methods: {
+                test() {
+                    alert('你好迪丽热巴');
+                },
+                test1:function(s){
+                    alert(s)
+                }
+            },
+        })
+        var obj = {
+            a1() {
+                console.log(1111);
+            },
+            a2() {
+                console.log(2222);
+            },
+            a3:function(){
+                console.log(33333);
+            }
+        }
+    </script>
+</body>
+
+</html>

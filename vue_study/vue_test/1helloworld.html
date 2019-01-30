@@ -13,7 +13,10 @@
     <div id="test">
         <input type="text" name="" id="" v-model="msg">
         <p>你输入的是: {{msg}}</p>
+        <br>
+        {{msg}}
     </div>
+    
 
     <script>
         const vm = new Vue({ // 配置对象 options
@@ -23,6 +26,18 @@
                 msg: '林志玲'
             }
         })
+        console.log(vm);
+
+        // function Person(name,age) {
+        //     this.name=name;
+        //     this.age=age;
+        // }
+
+        // var p1 = new Person('孙悟空',19);
+
+        // console.log(p1);
+        
+        
     </script>
 </body>
 

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>es6</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            name: '林志玲',
+            age: 18
+        }
+        var json_obj = JSON.stringify(obj)
+        console.log(json_obj);
+        var json1 = '{"name":"LZL","school":"南京大学","age":"18","id":100}';
+        var json2 = '[1,2,3,"南京"]'
+        var o2 = JSON.parse(json1);
+        var o3 = JSON.parse(json2);
+        console.log(o2);
+    </script>
+</body>
+
+</html>
